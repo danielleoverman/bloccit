@@ -20,7 +20,11 @@
     body: RandomData.random_paragraph
     )
 end
- 
+
+#Finds Duplicate or Creates New
+Post.find_or_create_by(title: "new title", body: "new body")
+
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
