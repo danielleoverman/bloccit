@@ -24,7 +24,18 @@ end
 #Finds Duplicate or Creates New
 Post.find_or_create_by(title: "new title", body: "new body")
 
+ # Create Questions
+ 100.times do
+ # #1
+   Question.create!(
+ # #2
+     title:  RandomData.random_sentence,
+     body:   RandomData.random_paragraph,
+     resolved: false
+   )
+ end
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Question.count} questions created"
