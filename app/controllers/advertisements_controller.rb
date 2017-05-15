@@ -26,4 +26,5 @@ class AdvertisementsController < ApplicationController
        render :new
      end
   end
+  
 end
