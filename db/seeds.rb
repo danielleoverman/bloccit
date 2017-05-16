@@ -30,6 +30,18 @@ topics = Topic.all
     )
 end
 
+ # Create Sponsored Post
+ 25.times do
+ # #1
+   SponsoredPosts.create!(
+     topic:  topics.sample,
+     title:  RandomData.random_sentence,
+     body:   RandomData.random_paragraph,
+     price: 25,
+   )
+ end
+ SponsoredPosts = SponsoredPosts.all
+
 #Finds Duplicate or Creates New
 Post.find_or_create_by(title: "new title", body: "new body")
 
