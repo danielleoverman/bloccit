@@ -17,6 +17,13 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+* {
+  border: 1px; 
+  background: lightgrey !important;
+  font-family: Courier New, Courier, monospace !important;
+  color: black;
+}
+
  .user-info {
    margin-top: 9px;
  }
@@ -24,3 +31,35 @@
  .nav {
    margin-top: 5px;
  }
+
+.btn-primary { 
+  font-weight: bold;
+  text-align: center;
+  color: black;
+}
+
+.btn-success {
+  font-weight: bold;
+  text-align: center;
+  color: black;
+}
+
+.btn-danger {
+  color: red;
+  font-weight: bold;
+}
+
+.nav {
+  font-weight: bold;
+  color: #4d0000;
+}
+
+.title {
+  font-weight: bold;
+  color: black;
+}
+
+.headers {
+  font-weight: bold;
+  color: 4d0000;
+}

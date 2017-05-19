@@ -1,5 +1,5 @@
 <h1>New Post</h1>
- 
+<%= form_for [@topic, @post] do |f| %>
  <div class="row">
    <div class="col-md-4">
      <p>Guidelines for posts</p>
@@ -13,6 +13,4 @@
      <%= render partial: 'form', locals: { topic: @topic, post: @post } %>
    </div>
 </div>
-
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<% end %>

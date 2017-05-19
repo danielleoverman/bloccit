@@ -129,5 +129,3 @@ end
       expect(assigns(:posts)).to eq([my_post])
     end
   end
-
-end
