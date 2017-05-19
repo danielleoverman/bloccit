@@ -1,6 +1,7 @@
  source 'https://rubygems.org'
- 
- # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby '2.3.4'
+
+ # Bundle edge Rails instead: gem 'rails', github: 'rails/rails' 
   gem 'rails', '>= 5.0.0.rc2', '< 5.1'
   gem 'rails-controller-testing'
 
@@ -18,7 +19,6 @@
  end
 
 group :development, :test do
-  gem 'ruby' '2.3.4'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda'
  end
