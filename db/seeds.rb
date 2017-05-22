@@ -44,9 +44,17 @@ end
 #Finds Duplicate or Creates New
 Post.find_or_create_by(title: "new title", body: "new body")
 
- user = User.first
- user.update_attributes!(
-   email: 'danielleoverman1@gmail.com',
+ admin = User.create!(
+   name:     'Admin User',
+   email:    'admin@example.com',
+   password: 'helloworld',
+   role:     'admin'
+ )
+ 
+ # Create a member
+ member = User.create!(
+   name:     'Member User',
+   email:    'member@example.com',
    password: 'helloworld'
  )
 
