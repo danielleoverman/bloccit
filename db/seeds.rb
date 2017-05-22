@@ -58,6 +58,14 @@ Post.find_or_create_by(title: "new title", body: "new body")
    password: 'helloworld'
  )
 
+  # Create an moderator
+  admin = User.create!(
+    name:     'Moderator User',
+    email:    'mod@example.com',
+    password: 'helloworld',
+    role:     'moderator'
+  )
+
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
