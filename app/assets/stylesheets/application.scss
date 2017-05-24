@@ -19,9 +19,19 @@
 
 * {
   border: 1px; 
-  background: lightgrey !important;
-  font-family: Courier New, Courier, monospace !important;
+  background-color: #f2f2f2;
   color: black;
+}
+.jumbotron {
+  background-color: #bfbfbf !important;
+}
+
+.header-welcome {
+  background-color: #bfbfbf !important;  
+}
+
+.sign-welcome {
+  background-color: #bfbfbf !important;
 }
 
  .user-info {
