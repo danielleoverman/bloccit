@@ -8,6 +8,9 @@
 
    let(:post) { topic.posts.create!(title: title, body: body, user: user) }
 
+   it "has a title, body, and user attribute" do
+      expect(post).to have_attributes(title: title, body: body, user: user)
+
    it { is_expected.to have_many(:comments) }
 
    it { is_expected.to have_many(:votes) }
@@ -18,22 +21,12 @@
 
    it { is_expected.to validate_presence_of(:user) }
 
-   it "has a title, body, and user attribute" do
-      expect(post).to have_attributes(title: title, body: body, user: user)
-
    it { is_expected.to validate_presence_of(:title) }
    it { is_expected.to validate_presence_of(:body) }
    it { is_expected.to validate_presence_of(:topic) }
  
    it { is_expected.to validate_length_of(:title).is_at_least(5) }
    it { is_expected.to validate_length_of(:body).is_at_least(20) }
- 
-
-   describe "attributes" do
-     it "has a title and body attribute" do
-       expect(post).to have_attributes(title: title, body: body)
-     end
-   end
 
    describe "voting" do
      before do
@@ -80,6 +73,29 @@
          expect(post.rank).to eq (old_rank - 1)
        end
      end
-   end
-  end 
+    
+    describe "#create_vote" do 
+      let(:topic) { Topic.create!(name: name, description: description) }
+
+      let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
+
+      let(:post) { topic.posts.create!(title: title, body: body, user: user) }
+
+      it "changes up_votes value to 1" do
+        post.save
+        expect(post.up_votes).to eq (1)
+     end
+
+      it "changes down_votes value to 0" do
+         post.save
+        expect(post.down_votes).to eq (0)
+      end
+
+    it "associates vote with both the post and the user who created it." do
+      post.save
+      expect(Vote.first.user).to eq (post.user)
+    end
+  end      
+end
+end
 end
