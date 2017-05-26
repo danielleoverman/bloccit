@@ -1,8 +1,9 @@
 require 'rails_helper'
+include RandomData
+ include SessionsHelper
 
 RSpec.describe TopicsController, type: :controller do
-
-   let(:my_topic) { Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph) }
+   let(:my_topic) { create(:topic) }
  
    describe "GET index" do
      it "returns http success" do
@@ -121,6 +122,5 @@ RSpec.describe TopicsController, type: :controller do
        delete :destroy, {id: my_topic.id}
        expect(response).to redirect_to topics_path
      end
-   end
-      
+   end      
 end
