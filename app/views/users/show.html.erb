@@ -18,9 +18,32 @@
      </div>
    </div>
  </div>
- 
- <h2>Posts</h2>
- <%= render @user.posts %>
- 
- <h2>Comments</h2>
- <%= render @user.comments %>
+<div class="row">
+  <div class="col-md-8">
+    <h2>Posts</h2>
+    <% if @user.has_posts? %>
+      <%= render @user.posts %>
+      <% end %>
+    <% else %>
+      <% "#{@user.name} does not have any posts yet." %>
+    <% end %>
+   </div>
+   <div class = col-md-8>
+      <h2>Comments</h2>
+      <% if @user.has_comments? %>
+        <%= render @user.comments %>
+        <% end %>
+      <% else %>
+        <h3> <% "#{@user.name} does not have any comments yet." %> </h3>
+    <% end %>
+   </div>
+   <div class="col-md-8>
+    <h2> Favorites </h2>
+    <% if @user.has_favorites? %>
+      <%= render partial: 'favorites/favorite', locals: { post: favorite.post } %>
+      <% end %>
+    <% else %>
+      <%= "#{@user.name} has not favorited any posts yet." %>
+    <% end %>
+  </div>
+</div>

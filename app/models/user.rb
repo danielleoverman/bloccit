@@ -1,3 +1,5 @@
+include UsersHelper
+
 class User < ApplicationRecord
    has_many :posts, dependent: :destroy
    has_many :comments, dependent: :destroy
@@ -30,5 +32,17 @@ class User < ApplicationRecord
    def avatar_url(size)
      gravatar_id = Digest::MD5::hexdigest(self.email).downcase
      "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
+   end
+
+    def has_posts?
+        posts.count > 0 
+   end
+
+   def has_comments?
+        comments.count > 0
+   end
+    
+   def has_favorites?
+        favorites.count > 0 
    end
 end
